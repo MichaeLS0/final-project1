@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: final-flask
+  labels:
+    app: final-flask
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: final-flask
+  template:
+    metadata:
+      labels:
+        app: final-flask
+    spec:
+      containers:
+        - name: final-flask
+          # Image is set/updated by the GitHub Actions workflow
+          image: docker.io/USERNAME/final-flask:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000

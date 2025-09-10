@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: final-flask
+  labels:
+    app: final-flask
+spec:
+  type: LoadBalancer
+  selector:
+    app: final-flask
+  ports:
+    - name: http
+      port: 80
+      targetPort: 5000
