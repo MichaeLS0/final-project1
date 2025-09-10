@@ -38,6 +38,7 @@ jobs:
 
       - name: Write kubeconfig from secret
         run: |
+          mkdir -p $HOME/.kube
           echo "${{ secrets.KUBECONFIG_B64 }}" | base64 -d > $HOME/.kube/config
           chmod 600 $HOME/.kube/config
 
